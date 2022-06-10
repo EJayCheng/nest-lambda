@@ -1,8 +1,21 @@
-#!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib';
+import { str } from 'env-var-provider';
+import { setDotEnv } from '../src/utils/set-dot-env';
 import { CdkStack } from './cdk-stack';
+setDotEnv();
 
+const AWS_CDK_APP_NAME = str('AWS_CDK_APP_NAME', {
+  isRequired: true,
+  description: 'Application name of AWS Cloud Development Kit(CDK)',
+  defaultValue: 'nest-lambda-poc',
+});
+const AWS_DEFAULT_REGION = str('AWS_DEFAULT_REGION', { isRequired: true });
+console.log({ AWS_CDK_APP_NAME, AWS_DEFAULT_REGION });
+console.log(process.env.AWS_ACCESS_KEY_ID);
 const app = new cdk.App();
-new CdkStack(app, 'nest-lambda-poc', {
-  env: {},
+new CdkStack(app, AWS_CDK_APP_NAME, {
+  env: {
+    region: AWS_DEFAULT_REGION,
+    account: '254365913028',
+  },
 });

@@ -39,7 +39,7 @@
     "env-var-provider": "^2.1.0",
     "helmet": "^5.1.0",
     "morgan": "^1.10.0",
-    "nest-lambda": "file:layers/nodejs",
+    "nest-lambda": "file:../..",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.5"

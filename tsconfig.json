@@ -12,5 +12,8 @@
     "baseUrl": "./",
     "incremental": true
   },
-  "exclude": ["cdk", "cdk.out"]
+  "exclude": [
+    "cdk",
+    "cdk.out"
+  ]
 }
