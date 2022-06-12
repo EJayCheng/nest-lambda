@@ -1,15 +1,17 @@
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
-import createServer from '@vendia/serverless-express';
+import serverlessExpress from '@vendia/serverless-express';
 import { APIGatewayEvent, Callback, Context, Handler } from 'aws-lambda';
 import { eventContext } from 'aws-serverless-express/middleware';
 import { json, urlencoded } from 'body-parser';
-import * as compression from 'compression';
-import * as express from 'express';
+import compression from 'compression';
+import express from 'express';
 import helmet from 'helmet';
-import * as morgan from 'morgan';
+import morgan from 'morgan';
 import { AppModule } from './app.module';
+console.log({ helmet });
+console.log({ serverlessExpress });
 
 let binaryMimeTypes: string[] = [
   'application/javascript',
@@ -51,7 +53,7 @@ async function bootstrap(): Promise<Handler> {
   await useMiddleware(nestApp);
   nestApp.use(eventContext());
   await nestApp.init();
-  server = createServer({ app: expressApp, binaryMimeTypes });
+  server = serverlessExpress({ app: expressApp, binaryMimeTypes });
   return server;
 }
 

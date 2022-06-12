@@ -5,15 +5,13 @@
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "target": "es2018",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true
   },
-  "exclude": [
-    "cdk",
-    "cdk.out"
-  ]
+  "exclude": ["cdk", "cdk.out"]
 }
