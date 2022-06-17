@@ -11,7 +11,7 @@ export class CdkStack extends Stack {
     super(scope, id, props);
 
     const nodeModulesLayer = new LayerVersion(this, 'node-modules-layer', {
-      compatibleRuntimes: [Runtime.NODEJS_14_X, Runtime.NODEJS_16_X],
+      compatibleRuntimes: [Runtime.NODEJS_16_X],
       code: Code.fromAsset(NodeModulesLayerPath),
       description: 'Nestjs Api Handler Dependencies',
     });

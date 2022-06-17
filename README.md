@@ -29,6 +29,7 @@
 ## Installation
 
 ```bash
+$ aws codeartifact login --tool npm --repository npm --domain polymer --domain-owner 805332884783
 $ npm install
 ```
 
